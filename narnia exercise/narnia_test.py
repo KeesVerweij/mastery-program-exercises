@@ -1,4 +1,4 @@
-from narnia import Wardrobe
+from narnia import Wardrobe, Narnia
 import unittest
 
 
@@ -18,16 +18,14 @@ class TestWardrobe(unittest.TestCase):
             w.kick(), "can't kick the closet your closet is made out of a kick-resistant material!")
 
 
+class TestNarnia(unittest.TestCase):
+    def setUp(self):
+        pass
+
+    def visit(self):
+        n = Narnia(0, "kees")
+        self.assertIsNone(n.visit())
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=3)
-
-# w = Wardrobe("wood", "billy")
-# # print(w.open())
-# # print(w.close())
-# # print(w.get_in())
-# # print(w.open())
-# # print(w.get_in())
-# # print(w.close())
-# # print(w.get_out())
-# print(w)
-# print(w.kick())
