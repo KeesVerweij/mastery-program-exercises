@@ -16,9 +16,8 @@ class Narnia:
             witch = Witch(self.visits, self.name)
             win = witch.fight()
             if win is True:
-                print("you may visit aslan!")
-                print(self.wardrobe.get_out())
-                print(self.wardrobe.close())
+                aslan = Aslan(self.visit, self.name)
+                aslan.visit()
                 return True
             else:
                 print(self.wardrobe.get_out())
@@ -30,6 +29,15 @@ class Narnia:
             return False
 
 
+class Aslan:
+    def __init__(self, visits, name):
+        self.visits = visits
+        self.name = name
+
+    def visit(self):
+        print("Ah, " + self.name + " after " + str(self.visits) + " You finally meet the great Aslan!")
+
+
 class Witch:
     def __init__(self, visits, name):
         self.visits = visits
@@ -39,9 +47,11 @@ class Witch:
         if self.visits == 0:
             print("Krakrakra! Hello, your name is " + self.name + " right? Get ready to fight!!")
         else:
-            print("Hello, " + self.name + " Krakrakra! We meet again, get ready to fight!!")
+            print("Hello, " + self.name + " Krakrakra! We meet again for the " +
+                  str(self.visits) + " time, get ready to fight!!")
         if random.randint(self.visits, 99) == 99:
             print("You have defeated me, " + self.name + "! Krakrakra!")
+            print("you may visit aslan!")
             return True
         else:
             print("You have failed, " + self.name + "! Krakrakra! Better luck next time!")
