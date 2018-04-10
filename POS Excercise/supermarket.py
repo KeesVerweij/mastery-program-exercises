@@ -1,6 +1,7 @@
 from product import Product
 from register import Register
 from customer import Customer
+from discounts import DateDiscount
 
 p1 = Product(1, 'Washing powder', 8)
 p2 = Product(2, 'Chocolate', 2)
@@ -16,3 +17,5 @@ shopping_cart = {p2: 2, p4: 5, p1: 3}
 customer = Customer(shopping_cart)
 print(customer)
 print(customer.get_receipt())
+date_discount = DateDiscount("Tuesday", 30)
+date_discount.is_applicable()
